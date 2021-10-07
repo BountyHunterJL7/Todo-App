@@ -1,0 +1,33 @@
+.navBar ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type:none;
+    align-items: center;
+}
+
+.navBar {
+    background-color: black;
+    box-shadow:0 3px 3px -1px rgba(0,0,0,0.2);
+}
+
+.navBar li {
+    margin: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    color:white;
+}
+
+/* .navBar a {
+    
+}
+
+.navBar a.nav-selected {
+    
+} */
+
+@media only screen and (min-width: 600px) {
+    .navBar ul {
+        flex-direction: row;
+        justify-content:flex-end;
+    }
+}
