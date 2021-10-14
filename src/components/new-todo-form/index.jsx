@@ -31,7 +31,7 @@ export const NewTodoForm = () => {
 
                 <Input
                 type="date"
-                name="title"
+                name="date"
                 label="Date"
                 errors={errors}
                 register={register}
