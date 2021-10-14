@@ -2,20 +2,15 @@ import "./styles.css";
 import {Todo} from "../../todo";
 
 export const HomePage = () => {
+    const todos = [
+        {text: "walk the dog", date: "07,10,2021", color: "blue", isComplete: false},
+        {text: "eat some food", date: "07,10,2021", color: "blue", isComplete: false},
+        {text: "build car", date: "07,10,2021", color: "blue", isComplete: false}
+    ];
+
     return (
-        <div>
-            <Todo 
-                text="Walk the dog" date="07/10/2021" color="blue"
-            >
-            </Todo>
-            <Todo 
-                text="GAME EPICLY :)" date="07/10/2021" color="blue"
-            >
-            </Todo>
-            <Todo 
-                text="eat banan - a" date="07/10/2021" color="blue"
-            >
-            </Todo>
+        <div className="todos-container">
+            {todos.map ((todo) => <Todo text={todo.text} date={todo.date} color={todo.color} isComplete={todo.isComplete}/>)}
         </div>
     )
 }
