@@ -10,7 +10,7 @@ export const NewTodoForm = () => {
     }
 
     return (
-        <form onsubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <Input
                 type="text"
                 name="title"
