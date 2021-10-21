@@ -1,19 +1,30 @@
 import "./styles.css";
 import PropTypes from "prop-types";
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import {TodosContext} from '../../context/todos-context';
 
 import {GoTrashcan, GoCheck} from 'react-icons/go';
 
 export const Todo = (props) => {
 
+    const todosContext = useContext(TodosContext);
+
     const [isComplete, setIsComplete] = useState(false);
 
     useEffect ( () => {
         setIsComplete(props.isComplete)
-    }, [props.isComplete])
+    }, [])
+
+    useEffect(() => {
+        todosContext.updateTodo(props.todoId, isComplete);
+    }, [isComplete])
 
     const toggleCompleteTodo = () => {
         setIsComplete (!isComplete);
+    }
+
+    const deleteTodo = () => {
+        todosContext.deleteTodo(props.todoId);
     }
 
     return (
@@ -27,7 +38,7 @@ export const Todo = (props) => {
                 <button className="todo-complete" onClick={toggleCompleteTodo}>
                     <GoCheck className="todo-icon" style={{fontSize:"35px" }}/>
                 </button>
-                <button className="todo-delete">
+                <button className="todo-delete" onClick ={deleteTodo}>
                     <GoTrashcan className="todo-icon" style={{fontSize:"35px" }}/>
                 </button>
             </div>
